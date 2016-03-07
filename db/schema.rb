@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307200852) do
+ActiveRecord::Schema.define(version: 20160307221911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "clues", force: :cascade do |t|
-    t.integer "left_coordinate"
-    t.integer "top_coordinate"
-    t.integer "question_id"
-    t.integer "scenario_id"
-  end
 
   create_table "questions", force: :cascade do |t|
     t.string  "picture"
@@ -30,7 +23,12 @@ ActiveRecord::Schema.define(version: 20160307200852) do
     t.string  "hint"
     t.string  "category"
     t.integer "clue_id"
+    t.integer "left_coordinate"
+    t.integer "right_coordinate"
+    t.integer "scenario_id"
   end
+
+  add_index "questions", ["scenario_id"], name: "index_questions_on_scenario_id", using: :btree
 
   create_table "scenarios", force: :cascade do |t|
     t.string "floor_plan_url"
@@ -59,4 +57,5 @@ ActiveRecord::Schema.define(version: 20160307200852) do
     t.string "last_name"
   end
 
+  add_foreign_key "questions", "scenarios"
 end
