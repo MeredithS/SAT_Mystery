@@ -1,4 +1,4 @@
 # SAT_Mystery
 
 ##ERD##
-![](ERD.jpg)
+![](images/ERD.jpg)
