@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307221911) do
+ActiveRecord::Schema.define(version: 20160307223333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160307221911) do
     t.string  "category"
     t.integer "clue_id"
     t.integer "left_coordinate"
-    t.integer "right_coordinate"
     t.integer "scenario_id"
+    t.integer "top_coordinate"
   end
 
   add_index "questions", ["scenario_id"], name: "index_questions_on_scenario_id", using: :btree
